@@ -262,7 +262,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2154449347119569311}
-  m_Text: xx,xx
+  m_Text: 0,0
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -470,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550693879675988741}
   - component: {fileID: 4834816056849875666}
+  - component: {fileID: 8214150093239213845}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -486,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 4575335889958341820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
   - {fileID: 6430960901085657468}
   - {fileID: 7461963082034692023}
@@ -511,6 +512,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 10
+--- !u!114 &8214150093239213845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575335889958341820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7bc573b06b8e00f4ca24902704a173fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5114510075827606744
 GameObject:
   m_ObjectHideFlags: 0

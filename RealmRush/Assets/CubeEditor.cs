@@ -4,12 +4,16 @@ using UnityEngine;
 
 [ExecuteInEditMode]     // Runs in editor
 [SelectionBase]         // Helps to select base in heirarchy
+[RequireComponent(typeof(Waypoint))]
 
 public class CubeEditor : MonoBehaviour
 {
-    [SerializeField] [Range (1f, 20f)] float gridSize = 10f;
+    Waypoint waypoint;
 
-    TextMesh textMesh;
+    private void Awake()
+    {
+        waypoint = GetComponent<Waypoint>();
+    }
 
     private void Start()
     {
@@ -19,15 +23,25 @@ public class CubeEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 snapPos;
-     
-        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
+        SnapToGrid();
+        UpdateLabel();
+    }
 
-        textMesh = GetComponentInChildren<TextMesh>();
-        textMesh.text = snapPos.x/gridSize + "," + snapPos.z/gridSize;
+    private void SnapToGrid()
+    {
+        int gridSize = waypoint.GetGridSize();
+        transform.position = new Vector3
+        (waypoint.GetGridPos().x * gridSize,  
+         0, 
+         waypoint.GetGridPos().y * gridSize);  // Vector2Int has 2 components.  Requires X & Y for mapping
+    }
 
-        transform.position = new Vector3(snapPos.x, 0, snapPos.z);
-
+    private void UpdateLabel()
+    {
+        TextMesh textMesh = GetComponentInChildren<TextMesh>();
+        string labelText = waypoint.GetGridPos().x + "," 
+                         + waypoint.GetGridPos().y;
+        textMesh.text = labelText;
+        gameObject.name = labelText;
     }
 }
